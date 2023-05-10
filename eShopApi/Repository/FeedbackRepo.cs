@@ -22,10 +22,10 @@ namespace eShopApi.Repository
             {
                 _context.Feedbacks.Add(feedback);
                 await _context.SaveChangesAsync();
-                return true; // Feedback added successfully
+                return true; 
                 
             }
-            return false; // User ID not found
+            return false; 
 
         }
 

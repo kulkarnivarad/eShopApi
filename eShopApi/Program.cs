@@ -24,6 +24,9 @@ builder.Services.AddScoped<IFeedback, FeedbackRepo>();
 builder.Services.AddScoped<FeedbackService, FeedbackService>();
 builder.Services.AddScoped<ICart, CartRepo>();
 builder.Services.AddScoped<CartService, CartService>();
+builder.Services.AddScoped<IOrder, OrderRepo>();
+builder.Services.AddScoped<OrderService, OrderService>();
+
 
 var app = builder.Build();
 

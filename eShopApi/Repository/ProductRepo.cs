@@ -95,5 +95,27 @@ namespace eShopApi.Repository
                 throw new Exception("Error occurred while updating product.", ex);
             }
         }
+
+        // Method to get products by category 
+        public async Task<List<Product>> GetProductsByCategoryAsync(string category)
+        {
+            try
+            {
+                List<Product> products = await _context.Products
+                    .Where(p => p.Category == category)
+                    .ToListAsync();
+
+                if (products == null || products.Count == 0)
+                {
+                    throw new KeyNotFoundException("No products found in this category");
+                }
+
+                return products;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error occurred while getting products by category.", ex);
+            }
+        }
     }
 }

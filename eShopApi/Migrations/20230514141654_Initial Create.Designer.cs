@@ -11,8 +11,8 @@ using eShopApi.Data;
 namespace eShopApi.Migrations
 {
     [DbContext(typeof(eShopDbContext))]
-    [Migration("20230509185410_Initial migration")]
-    partial class Initialmigration
+    [Migration("20230514141654_Initial Create")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -97,11 +97,11 @@ namespace eShopApi.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Username")
+                    b.Property<string>("Query")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("feedback")
+                    b.Property<string>("Username")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

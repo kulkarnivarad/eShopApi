@@ -3,7 +3,7 @@ using eShopApi.Models;
 
 namespace eShopApi.Services
 {
-    public class ProductService 
+    public class ProductService
     {
         private readonly IProduct _productRepo;
 
@@ -35,6 +35,11 @@ namespace eShopApi.Services
         public async Task<string> DeleteProductAsync(int ProductId)
         {
             return await _productRepo.DeleteProductAsync(ProductId);
+        }
+
+        public async Task<List<Product>> GetProductsByCategoryAsync(string category)
+        {
+            return await _productRepo.GetProductsByCategoryAsync(category);
         }
     }
 }

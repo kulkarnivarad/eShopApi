@@ -70,6 +70,12 @@ namespace eShopApi.Repository
         {
             try
             {
+                var existingUser = await _context.UserDetails.FirstOrDefaultAsync(u => u.EmailId == userDetail.EmailId);
+                if (existingUser != null)
+                {
+                    return "Email address is already registered";
+                }
+
                 await _context.UserDetails.AddAsync(userDetail);
                 await _context.SaveChangesAsync();
                 return "Saved User";

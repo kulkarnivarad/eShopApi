@@ -9,5 +9,6 @@ namespace eShopApi.Interfaces
         Task<string> SaveProductAsync(Product product);
         Task<string> UpdateProductAsync(Product product);
         Task<string> DeleteProductAsync(int ProductId);
+        Task<List<Product>> GetProductsByCategoryAsync(string category);
     }
 }

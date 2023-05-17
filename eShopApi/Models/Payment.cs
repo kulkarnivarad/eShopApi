@@ -18,5 +18,6 @@ namespace eShopApi.Models
         public string Tstatus { get; set; }
         public string Mode { get; set; }
         public string Code { get; set; }
+
     }
 }

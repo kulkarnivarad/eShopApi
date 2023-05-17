@@ -44,7 +44,7 @@ namespace ShoppingCartApi.Controllers
             return Ok(product);
         }
 
-        
+
         // PUT: api/Product/5
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateProduct(int id, [FromBody] Product product)
@@ -63,6 +63,14 @@ namespace ShoppingCartApi.Controllers
         {
             await _productService.DeleteProductAsync(id);
             return Ok();
+        }
+
+        // GET: api/Product/category/{category}
+        [HttpGet("category/{category}")]
+        public async Task<ActionResult<IEnumerable<Product>>> GetProductsByCategory(string category)
+        {
+            var products = await _productService.GetProductsByCategoryAsync(category);
+            return Ok(products);
         }
     }
 }

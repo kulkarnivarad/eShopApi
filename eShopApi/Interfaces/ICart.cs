@@ -4,12 +4,11 @@ namespace eShopApi.Interfaces
 {
     public interface ICart
     {
-        Task<string> DeleteCart(int cartId);
+        Task<string> DeleteCart(int CartId);
         Task<List<Cart>> GetAllCart();
-        Task<Cart> GetCart(int cartId);
+      
         Task<string> SaveCart(Cart cart);
         Task<string> UpdateCart(Cart cart);
-        Task<IEnumerable<Cart>> GetCartByUserID(int UserId);
-        Task<int> GetCartId(int UserId);
+       
     }
 }

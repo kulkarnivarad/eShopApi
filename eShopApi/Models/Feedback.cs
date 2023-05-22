@@ -8,7 +8,8 @@ namespace eShopApi.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public string Username { get; set; }
-        public string Query { get; set; }
+        [Required]
+        public string Email { get; set; }
+        public string feedback { get; set; }
     }
 }

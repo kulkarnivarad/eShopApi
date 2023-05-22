@@ -50,10 +50,17 @@ namespace eShopApi.Repository
             return transaction;
         }
 
-       
+
         // Saves a new payment transaction to the database.
         public async Task<string> SaveTransactionAsync(Payment payment)
         {
+            var user = await _context.UserDetails.FirstOrDefaultAsync(u => u.EmailId == payment.Email);
+
+            if (user == null)
+            {
+                return "User not found";
+            }
+
             _context.Payment.Add(payment);
             await _context.SaveChangesAsync();
             return "Saved";

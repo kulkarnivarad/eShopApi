@@ -27,9 +27,14 @@ namespace eShopApi.Services
             return await _productRepo.SaveProductAsync(product);
         }
 
-        public async Task<string> UpdateProductAsync(Product product)
+        //public async Task<string> UpdateProductAsync(Product product)
+        //{
+        //    return await _productRepo.UpdateProductAsync(product);
+        //}
+
+        public string UpdateProduct(Product Product)
         {
-            return await _productRepo.UpdateProductAsync(product);
+            return _productRepo.UpdateProduct(Product);
         }
 
         public async Task<string> DeleteProductAsync(int ProductId)

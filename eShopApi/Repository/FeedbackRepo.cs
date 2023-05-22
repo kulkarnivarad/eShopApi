@@ -17,16 +17,17 @@ namespace eShopApi.Repository
         // Method to save feedback details 
         public async Task<bool> SaveFeedDetailsAsync(Feedback feedback)
         {
-            var user = await _context.UserDetails.FindAsync(feedback.Id);
+            var user = await _context.UserDetails.FirstOrDefaultAsync(u => u.EmailId == feedback.Email);
             if (user == null)
             {
-                _context.Feedbacks.Add(feedback);
-                await _context.SaveChangesAsync();
-                return true; 
-                
+                // User not found, do something...
+                return false;
             }
-            return false; 
 
+            // User found, save feedback and return true
+            _context.Feedbacks.Add(feedback);
+            await _context.SaveChangesAsync();
+            return true;
         }
 
         // Method to get all feedback details

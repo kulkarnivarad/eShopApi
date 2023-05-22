@@ -20,50 +20,23 @@ namespace eShopApi.Controllers
             public async Task<ActionResult<string>> SaveCart([FromBody] Cart cart)
             {
             var result = await _cartService.SaveCart(cart);
-                if (result == "Saved the Cart")
-                  return CreatedAtAction(nameof(GetCartById), new { id = cart.CartId }, cart);
-                else
-                  return BadRequest(result);
+            if (result == "Saved the Cart")
+                return Ok(cart);
+            else
+                return BadRequest(result);
             }
 
             // GET api/cart
             [HttpGet]
             public async Task<ActionResult<IEnumerable<Cart>>> GetAllCarts()
             {
-                var carts = await _cartService.GetAllCarts();
+                var carts = await _cartService.GetAllCart();
                 return Ok(carts);
             }
 
-            // GET api/cart/5
-            [HttpGet("{id}")]
-            public async Task<ActionResult<Cart>> GetCartById(int id)
-            {
-                var cart = await _cartService.GetCartById(id);
-                if (cart == null)
-                    return NotFound();
-                return Ok(cart);
-            }
-
-            // GET api/cart/user/5
-            [HttpGet("user/{userId}")]
-            public async Task<ActionResult<IEnumerable<Cart>>> GetCartsByUserId(int userId)
-            {
-               var carts = await _cartService.GetCartsByUserId(userId);
-                 return Ok(carts);
-            }
-
-            // GET api/cart/user/5/id
-            [HttpGet("user/{userId}/id")]
-            public async Task<ActionResult<int?>> GetCartIdByUserId(int userId)
-            {
-             int cartId = await _cartService.GetCartIdByUserId(userId);
-             if (cartId == null)
-                return NotFound();
-              return Ok(cartId);
-            }
-
-            // PUT api/cart/5
-            [HttpPut("{id}")]
+        
+        // PUT api/cart/5
+        [HttpPut("{id}")]
             public async Task<ActionResult<string>> UpdateCart(int id, [FromBody] Cart cart)
             {
                 if (id != cart.CartId)

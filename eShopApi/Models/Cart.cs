@@ -9,8 +9,6 @@ namespace eShopApi.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int CartId { get; set; }
 
-        [ForeignKey("UserDetails")]
-        public int UserId { get; set; }
 
         [ForeignKey("Product")]
         public int ProductId { get; set; }
@@ -21,5 +19,7 @@ namespace eShopApi.Models
         public int Quantity { get; set; } = 1;
 
         public decimal Price { get; set; }
+
+       
     }
 }

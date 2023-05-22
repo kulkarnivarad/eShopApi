@@ -17,16 +17,12 @@ namespace eShopApi.Services
             return await _cartRepo.DeleteCart(cartId);
         }
 
-        public async Task<List<Cart>> GetAllCarts()
+        public async Task<List<Cart>> GetAllCart()
         {
             return await _cartRepo.GetAllCart();
         }
 
-        public async Task<Cart> GetCartById(int cartId)
-        {
-            return await _cartRepo.GetCart(cartId);
-        }
-
+       
         public async Task<string> SaveCart(Cart cart)
         {
             return await _cartRepo.SaveCart(cart);
@@ -37,14 +33,6 @@ namespace eShopApi.Services
             return await _cartRepo.UpdateCart(cart);
         }
 
-        public async Task<IEnumerable<Cart>> GetCartsByUserId(int userId)
-        {
-            return await _cartRepo.GetCartByUserID(userId);
-        }
-
-        public async Task<int> GetCartIdByUserId(int userId)
-        {
-            return await _cartRepo.GetCartId(userId);
-        }
+      
     }
 }

@@ -14,7 +14,6 @@ namespace eShopApi.Data
         public DbSet<Cart> Carts { get; set; }
 
         public DbSet<Order> Orders { get; set; }
-        public DbSet<Address> Address { get; set; }
         public DbSet<Feedback> Feedbacks { get; set; }
     }
 }

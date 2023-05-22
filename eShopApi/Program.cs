@@ -36,8 +36,6 @@ builder.Services.AddScoped<ICart, CartRepo>();
 builder.Services.AddScoped<CartService, CartService>();
 builder.Services.AddScoped<IOrder, OrderRepo>();
 builder.Services.AddScoped<OrderService, OrderService>();
-builder.Services.AddScoped<IAddress, AddressRepo>();
-builder.Services.AddScoped<AddressService, AddressService>();
 builder.Services.AddScoped<IPayment, PaymentRepo>();
 builder.Services.AddScoped<PaymentService, PaymentService>();
 

@@ -1,6 +1,7 @@
 ﻿using eShopApi.Models;
 using eShopApi.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace ShoppingCartApi.Controllers
 {
@@ -46,15 +47,23 @@ namespace ShoppingCartApi.Controllers
 
 
         // PUT: api/Product/5
-        [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateProduct(int id, [FromBody] Product product)
+        //[HttpPut("{id}")]
+        //public async Task<IActionResult> UpdateProduct( Product product)
+        //{
+
+        //    await _productService.UpdateProductAsync(product);
+        //    return Ok();
+        //}
+        //[HttpPut("UpdateProduct")]
+        //public async Task<IActionResult> UpdateProduct(Product product)
+        //{
+        //    var updatedProduct = await _productService.UpdateProductAsync(product);
+        //    return Ok(updatedProduct);
+        //}
+        [HttpPut("UpdateProduct")]
+        public IActionResult UpdateProducte(Product Product)
         {
-            if (id != product.ProductId)
-            {
-                return BadRequest();
-            }
-            await _productService.UpdateProductAsync(product);
-            return Ok();
+            return Ok(_productService.UpdateProduct(Product));
         }
 
         // DELETE: api/Product/5

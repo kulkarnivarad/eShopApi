@@ -82,19 +82,47 @@ namespace eShopApi.Repository
         }
 
         // Method to update a product 
-        public async Task<string> UpdateProductAsync(Product product)
+        //public async Task<string> UpdateProductAsync(Product product)
+        //{
+        //    try
+        //    {
+        //        _context.Entry(product).State = EntityState.Modified;
+        //        await _context.SaveChangesAsync();
+        //        return "Product updated successfully";
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw new Exception("Error occurred while updating product.", ex);
+        //    }
+        //}
+        //public async Task<string> UpdateProductAsync(Product product)
+        //{
+        //    try
+        //    {
+        //        _context.Entry(product).State = EntityState.Modified;
+        //        await _context.SaveChangesAsync();
+        //    }
+        //    catch (Exception)
+        //    {
+        //        throw;
+        //    }
+
+        //    return "Updated";
+        //}
+        public string UpdateProduct(Product Product)
         {
             try
             {
-                _context.Entry(product).State = EntityState.Modified;
-                await _context.SaveChangesAsync();
-                return "Product updated successfully";
+                _context.Entry(Product).State = EntityState.Modified;
+                _context.SaveChanges();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw new Exception("Error occurred while updating product.", ex);
+                throw;
             }
+            return "Updated";
         }
+
 
         // Method to get products by category 
         public async Task<List<Product>> GetProductsByCategoryAsync(string category)
